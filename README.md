@@ -8,3 +8,7 @@ pip install scikit-learn pandas numpy flask
 python model.py
 
 python app.py
+
+RUN
+
+flask run
