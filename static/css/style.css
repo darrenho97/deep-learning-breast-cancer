@@ -26,9 +26,9 @@ body {
 }
 .login { 
 	position: absolute;
-	top: 40%;
+	top: 30%;
 	left: 50%;
-	margin: -150px 0 0 -150px;
+	margin: -150px 0px 0px -150px;
 	width:400px;
 	height:400px;
 }

@@ -16,25 +16,44 @@
  <div class="login">
 	<h1>Deep Learning Breast Cancer Diagnosis</h1>
 
+  {% if pre_click == false %}
+
+  <img class='text-center' src="{{ url_for('display_image', filename=filename) }}" alt="User Image" width="150" height="150">
+
+  {% endif %}
+
+  {%for each in data %}
+  
+  <h3> {{ each }}</h3>
+  
+  {% endfor %}
+
+  {% if pre_click == false %}
+
+  <button><a href="{{ url_for('home') }}">Make Another Diagnosis </a> </button>
+
+  {% endif %}
+
      <!-- Main Input For Receiving Query to our ML -->
-    <form method="post">
-    	<input type="text" name="doctor_name" placeholder="Doctor's Name" required="required" />
+      </br>
+      {% if pre_click %}
+      <form method="post" action="/" enctype="multipart/form-data">
+        <input type="text" name="doctor_name" placeholder="Doctor's Name" required="required" />
         <input type="text" name="patient_name" placeholder="Patient's Name" required="required" />
-
-        </br>
-        <form action="/action_page.php">
-          <label for="img">Select image:</label>
-          <input type="file" id="img" name="img" accept="image/*">
-        </form>
-        </br>
-        
-      <button type="submit" class="btn btn-primary btn-block btn-large">Commence Diagnosis</button>
+        <input type="text" name="patient_age" placeholder="Patient's Age" required="required" />
+        <dl>
+      <p>
+        <input type="file" name="file" autocomplete="off" required>
+      </p>
+        </dl>
+        <p>
+      <input type="submit" value="Submit">
+        </p>
     </form>
-
+    {% endif %}
+      </br>
    <br>
    <br>
-   {{ prediction_text }}
-
  </div>
 </body>
 </html>
