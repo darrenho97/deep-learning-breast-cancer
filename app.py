@@ -38,19 +38,19 @@ def submit_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
             getPrediction(filename)
-            label, confidence = getPrediction(filename)
+            label = getPrediction(filename)
             print(label)
             flash(label)
             flash(filename)
-            label = "Your Diagnosis: " + label
-            confidence = "Confidence Score Of: " + str(confidence)
-            data = [label, confidence]
+            label = "Your Diagnosis: " + label[0]
+            data = [label]
             return render_template('index.html', data=data, pre_click=False, filename=filename)
 
 
 @app.route('/display/<filename>')
 def display_image(filename):
 	#print('display_image filename: ' + filename)
+
 	return redirect(url_for('static', filename='uploads/' + filename), code=301)
 
 

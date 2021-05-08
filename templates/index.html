@@ -12,10 +12,15 @@
   
 </head>
 
-<body style="background: #000;">
- <div class="login">
-	<h1>Deep Learning Breast Cancer Diagnosis</h1>
 
+
+<body class='text-center' style="background: #000;">
+ <div class="login">
+  <div>
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="User Image" width="150" height="150">
+
+	  <h1>Deep Learning Breast Cancer Diagnosis</h1>
+  </div>
   {% if pre_click == false %}
 
   <img class='text-center' src="{{ url_for('display_image', filename=filename) }}" alt="User Image" width="150" height="150">
