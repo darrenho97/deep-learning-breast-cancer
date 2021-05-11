@@ -36,6 +36,7 @@ def submit_file():
             return redirect(request.url)
         if file:
             filename = secure_filename(file.filename)
+            print(filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
             getPrediction(filename)
             label = getPrediction(filename)

@@ -14,13 +14,12 @@
 
 
 
-<body class='text-center' style="background: #bfe6e7;">
-<div class="center">
+<body class='text-center' style="background: #000;">
  <div class="login">
   <div>
-    <img id="logo" src="{{ url_for('static', filename='logo-2.png') }}" alt="User Image" width="150" height="150">
+    <img src="{{ url_for('static', filename='logo-2.png') }}" alt="User Image" width="150" height="150">
 
-	  <h2 style="color:white">Deep Learning Breast Cancer Diagnosis</h2>
+	  <h1>Deep Learning Breast Cancer Diagnosis</h1>
   </div>
   {% if pre_click == false %}
 
@@ -43,7 +42,7 @@
      <!-- Main Input For Receiving Query to our ML -->
       </br>
       {% if pre_click %}
-     <form method="post" action="/" enctype="multipart/form-data">
+      <form method="post" action="/" enctype="multipart/form-data">
         <input type="text" name="doctor_name" placeholder="Doctor's Name" required="required" />
         <input type="text" name="patient_name" placeholder="Patient's Name" required="required" />
         <input type="text" name="patient_age" placeholder="Patient's Age" required="required" />
@@ -61,6 +60,5 @@
    <br>
    <br>
  </div>
-</div>
 </body>
 </html>

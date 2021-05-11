@@ -33,7 +33,7 @@ loaded_model.summary()
 def getPrediction(filename):
 
     model = loaded_model
-    image = load_img('uploads/'+filename, target_size=(150, 150))
+    image = load_img('static\\uploads/'+filename, target_size=(150, 150))
 
     img_array = img_to_array(image)
     img_array = img_array / 255.0
