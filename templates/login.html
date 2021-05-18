@@ -1,0 +1,21 @@
+<!--Correct username: invitado / pass: hgm2015-->
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU=" crossorigin="anonymous" /> -->
+
+</head>
+<center>
+  <img class="logo" src="{{ url_for('static', filename='logo.png') }}" width="150px" height="150px" margin-top="30px">
+</center>
+<section class="form animated flipInX">
+    <center>
+    <h1>Deep Learning Breast Cancer Detection</h1>
+    </center>
+    <h2>Login To Your Account</h2>
+    <p class="valid">Valid. Please wait a moment.</p>
+    <p class="error">Error. Please enter correct Username &amp; password.</p>
+    <form class="loginbox" autocomplete="off">
+      <input placeholder="Username" type="text" id="username"></input>
+      <input placeholder="Password" type="password" id="password"></input>
+      <a class='button' href="{{ url_for('index') }}">Login</a>  </form>
+  </section>

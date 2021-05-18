@@ -22,7 +22,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def home():
-    return render_template('index.html', pre_click=True)
+    return render_template('login.html', pre_click=True)
 
 @app.route('/', methods=['POST'])
 def submit_file():
@@ -54,6 +54,11 @@ def display_image(filename):
 
 	return redirect(url_for('static', filename='uploads/' + filename), code=301)
 
+@app.route('/index')
+def index():
+	#print('display_image filename: ' + filename)
+
+	return render_template('index.html', pre_click=True)
 
 if __name__ == '__main__':
     app.debug = True

@@ -1,66 +1,167 @@
-
 <!DOCTYPE html>
-<html >
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Deployment Tutorial 1</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+<body>
 
 
+<div class="container">
+    <div class="main-body">
+    
+          <!-- Breadcrumb -->
+    	<header id="header" role ="banner">
+			<nav class="navigation-bar">
+				<img class="logo" src="{{ url_for('static', filename='logo.png') }}">
+				<a href="#">Home</a>
+			</nav>
+		</header>
+          <!-- /Breadcrumb -->
+          
+    <div class="column side">
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center"> <center>
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h4>John Doe</h4>
+                      <p class="text-secondary mb-1">Doctor</p>
+                      <p class="text-muted font-size-sm">Sydney, Australia</p>
+                      </center>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Patient Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      Kenneth
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      kenneth@gmail.com
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      1234556
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Mobile</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      12456
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Address</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      Sydney, Australia
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+    
+    <div class="column middle">
+    	<div class="row gutters-sm">
+    		<div class="col-md-4 mb-3">
+    			<div class="card-2">
+    				<div class="card-body">
+    					<div class="d-flex flex-column align-items-center text-center"> 
+    					<div class="mt-3">
+    						<center>
+    						<h2>Breast Cancer Diagnosis</h2>
+							{% if pre_click == false %}
 
-<body class='text-center' style="background: #bfe6e7;">
-<div class="center">
- <div class="login">
-  <div>
-    <img id="logo" src="{{ url_for('static', filename='logo-2.png') }}" alt="User Image" width="150" height="150">
+							<img class='text-center' src="{{ url_for('display_image', filename=filename) }}" alt="User Image" width="150" height="150">
 
-	  <h2 style="color:white">Deep Learning Breast Cancer Diagnosis</h2>
-  </div>
-  {% if pre_click == false %}
+							{% endif %}
 
-  <img class='text-center' src="{{ url_for('display_image', filename=filename) }}" alt="User Image" width="150" height="150">
-
-  {% endif %}
-
-  {%for each in data %}
+							{%for each in data %}
   
-  <h3> {{ each }}</h3>
+							<h3> {{ each }}</h3>
   
-  {% endfor %}
+							{% endfor %}
 
-  {% if pre_click == false %}
+							{% if pre_click == false %}
 
-  <button><a href="{{ url_for('home') }}">Make Another Diagnosis </a> </button>
+							<button><a href="{{ url_for('index') }}">Make Another Diagnosis </a> </button>
 
-  {% endif %}
+							{% endif %}
+							
+								</br>
+								{% if pre_click %}
+								<form method="post" action="/" enctype="multipart/form-data">
+									
+									<dl>
+										<p>
+                      <center>
+											<input type="file" name="file" autocomplete="off" onchange="loadFile(event)" accept="image/*" required>
+                      </br>
+                      </br>
+                      <img id="output" width="100" height="100"/>
+                      </center>
+										</p>
+									</dl>
+									<p>
+										<input type="submit" value="Submit">
+									</p>
+								</form>
+								{% endif %}
+									</br>
+								<br>
+								<br>
+    						<!--<div class="dashed">
 
-     <!-- Main Input For Receiving Query to our ML -->
-      </br>
-      {% if pre_click %}
-     <form method="post" action="/" enctype="multipart/form-data">
-        <input type="text" name="doctor_name" placeholder="Doctor's Name" required="required" />
-        <input type="text" name="patient_name" placeholder="Patient's Name" required="required" />
-        <input type="text" name="patient_age" placeholder="Patient's Age" required="required" />
-        <dl>
-      <p>
-        <input type="file" name="file" autocomplete="off" required>
-      </p>
-        </dl>
-        <p>
-      <input type="submit" value="Submit">
-        </p>
-    </form>
-    {% endif %}
-      </br>
-   <br>
-   <br>
- </div>
-</div>
+      						<p class="center">
+        						<input type="file" name="file" autocomplete="off" required>
+      						</p>
+
+        					</div>-->
+    						</center>
+    					<div class="mt-3">
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
 </body>
 </html>
+
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>
