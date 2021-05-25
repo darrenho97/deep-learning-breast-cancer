@@ -172,10 +172,11 @@ p.center {
     position: relative;
     height: 30px;
     width: 100px;
+    margin-bottom: 120px;
   }
   
 .file > input[type="file"] {
-position: absoulte;
+position: absolute;
 opacity: 0;
 top: 0;
 left: 0;
