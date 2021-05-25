@@ -20,6 +20,15 @@
           
     <div class="column side">
           <div class="row gutters-sm">
+		  <div class="col-md-4 mb-3">
+              <div class="card1">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center"> <center>
+                    <img src="{{ url_for('static', filename='logo.png') }}" width="250">
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="col-md-4 mb-3">
               <div class="card">
                 <div class="card-body">
@@ -35,56 +44,6 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-8">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Patient Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      Kenneth
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      kenneth@gmail.com
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Phone</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      1234556
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Mobile</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      12456
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Address</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      Sydney, Australia
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
         </div>
     </div>
     
@@ -97,9 +56,10 @@
     					<div class="mt-3">
     						<center>
     						<h2>Breast Cancer Diagnosis</h2>
+							<!--<img src="{{ url_for('static', filename='upload.jpg') }}" width="150">-->
 							{% if pre_click == false %}
 
-							<img class='text-center' src="{{ url_for('display_image', filename=filename) }}" alt="User Image" width="150" height="150">
+							<img class='text-center' src="{{ url_for('display_image', filename=filename) }}" alt="User Image" width="200" height="200">
 
 							{% endif %}
 
@@ -121,16 +81,22 @@
 									
 									<dl>
 										<p>
-                      <center>
-											<input type="file" name="file" autocomplete="off" onchange="loadFile(event)" accept="image/*" required>
-                      </br>
-                      </br>
-                      <img id="output" width="100" height="100"/>
-                      </center>
+											<center>
+											<div class="file">
+												<label for="file-input">Choose File</label>
+												<input type="file" name="file" autocomplete="off" required>
+											</div>
+											</center>
 										</p>
+									
 									</dl>
+										<!--<input type="file" id="actual-btn" name="file" autocomplete="off" required hidden/>-->
+										<!--<input type="file" id="upload" hidden/>
+										<label for="upload">Choose file</label>-->
+									
+											<!--<input type="file" name="file" autocomplete="off" required>-->
 									<p>
-										<input type="submit" value="Submit">
+										<input type="image" src="{{ url_for('static', filename='submit.png') }}" width="150" value="Submit">
 									</p>
 								</form>
 								{% endif %}
@@ -145,23 +111,64 @@
 
         					</div>-->
     						</center>
-    					<div class="mt-3">
-    					</div>
+							
     				</div>
     			</div>
     		</div>
     	</div>
     </div>
+	<div class="col-md-8">
+		<div class="card mb-3">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-sm-3">
+						<h6 class="mb-0">Patient Name</h6>
+					</div>
+						<div class="col-sm-9 text-secondary">
+							Kenneth
+						</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-sm-3">
+						<h6 class="mb-0">Email</h6>
+					</div>
+					<div class="col-sm-9 text-secondary">
+						kenneth@gmail.com
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-sm-3">
+						<h6 class="mb-0">Phone</h6>
+					</div>
+				<div class="col-sm-9 text-secondary">
+					1234556
+				</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-sm-3">
+						<h6 class="mb-0">Mobile</h6>
+					</div>
+					<div class="col-sm-9 text-secondary">
+					12456
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-sm-3">
+						<h6 class="mb-0">Address</h6>
+					</div>
+				<div class="col-sm-9 text-secondary">
+					Sydney, Australia
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
     
 </body>
 </html>
-
-<script>
-  var loadFile = function(event) {
-    var output = document.getElementById('output');
-    output.src = URL.createObjectURL(event.target.files[0]);
-    output.onload = function() {
-      URL.revokeObjectURL(output.src) // free memory
-    }
-  };
-</script>
