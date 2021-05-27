@@ -98,3 +98,7 @@ body {
   font-size: 14px;
   font-weight: 400;
 }
+
+#signup {
+  background-color: #3c7547 !important;    
+}

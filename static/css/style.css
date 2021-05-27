@@ -216,3 +216,17 @@ line-height: 30px;
 text-align: center;
 cursor: pointer
 }
+
+#buttons {
+    width:100%;
+    position:absolute;
+}
+
+
+#login {
+    float: left;
+}
+#signup {
+    float: right;
+    background-color: #3c7547 !important;    
+}

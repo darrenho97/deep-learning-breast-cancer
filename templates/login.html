@@ -17,5 +17,8 @@
     <form class="loginbox" autocomplete="off">
       <input placeholder="Username" type="text" id="username"></input>
       <input placeholder="Password" type="password" id="password"></input>
-      <a class='button' href="{{ url_for('index') }}">Login</a>  </form>
+      <div id="buttons">
+      <a class='button' id='login' href="{{ url_for('index') }}">Login</a>  </form>
+      <a class='button' id='signup'>Sign Up</a>  </form>
+      </div>
   </section>
